@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Get Well Soon 💖</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(to bottom, #ffe0ec, #ffd1e6);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .heart {
+        position: absolute;
+        bottom: -20px;
+        font-size: 22px;
+        animation: floatUp 6s linear infinite;
+        opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100vh);
+            opacity: 0;
+        }
+    }
+
+    .card {
+        background: white;
+        padding: 35px;
+        border-radius: 25px;
+        text-align: center;
+        width: 380px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        z-index: 2;
+    }
+
+    h1 {
+        color: #ff5fa2;
+        margin-bottom: 10px;
+    }
+
+    .message {
+        color: #555;
+        line-height: 1.6;
+        margin: 20px 0;
+    }
+
+    button {
+        background: #ff5fa2;
+        color: white;
+        border: none;
+        padding: 14px 24px;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 12px;
+    }
+
+    button:hover {
+        background: #ff3c8f;
+    }
+
+    #hugSection {
+        margin-top: 20px;
+        display: none;
+    }
+
+    #hugSection img {
+        width: 220px;
+        border-radius: 15px;
+    }
+
+    #extraMessage,
+    #secondMessage {
+        margin-top: 10px;
+        color: #ff5fa2;
+        font-weight: bold;
+    }
+
+    #secondMessage {
+        display: none;
+    }
+
+    /* prank section */
+    #prankSection {
+        display: none;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    #prankText {
+        color: #ff5fa2;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <!-- MAIN (sweet) CONTENT -->
+    <div id="mainContent">
+        <h1>🌷 Get Well Soon! 🌷</h1>
+
+        <p class="message">
+            GOODMORNING BABY 💕<br>
+            Aw cutie has fever??<br>
+            Rest well, drink lots of water,<br>
+            I miss you and take care💕
+        </p>
+
+        <button onclick="showHug()">Click for a hug 🤗</button>
+
+        <div id="hugSection">
+            <img src="https://media1.tenor.com/m/cqoh8EYUTAUAAAAC/hug-hugging.gif" alt="Penguins hugging">
+
+            <p id="extraMessage">
+                Sending you lots of love and 🫂🐧💖
+            </p>
+
+            <p id="secondMessage">
+                Istg if you got well by the time you see this, reuse this next time 😤💖
+            </p>
+
+            <!-- prank button -->
+            <button onclick="prankHim()">Click me 😏</button>
+        </div>
+    </div>
+
+    <!-- PRANK CONTENT ONLY -->
+    <div id="prankSection">
+        <h2>teko kya laga aur pyaari baat karungi?</h2>
+        <img src="https://media1.tenor.com/m/hyn4InQ0L9sAAAAC/baby-girl-middle-finger.gifif" width="220">
+        <p id="prankText">
+            rise n shine u 🤰<br>
+            buckle up its the day to yap with me hehehehehe<br>
+            Get up you weak ass person get ur ass to work 💋😈💋
+        </p>
+    </div>
+
+</div>
+
+<script>
+    function showHug() {
+        const hug = document.getElementById("hugSection");
+        const secondMsg = document.getElementById("secondMessage");
+
+        hug.style.display = "block";
+        secondMsg.style.display = "none";
+
+        setTimeout(() => {
+            secondMsg.style.display = "block";
+        }, 500);
+    }
+
+    function prankHim() {
+        document.getElementById("mainContent").style.display = "none";
+        document.getElementById("prankSection").style.display = "block";
+    }
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
